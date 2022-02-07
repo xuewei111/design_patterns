@@ -1,7 +1,7 @@
 package com.xuewei.factory.absfactory.pizzastore.order;
 
 
-import com.xuewei.factory.factorymethod.pizzastore.pizza.Pizza;
+import com.xuewei.factory.absfactory.pizzastore.pizza.Pizza;
 
 // 一个抽象工厂模式的抽象层(接口)
 public interface AbsFactory {

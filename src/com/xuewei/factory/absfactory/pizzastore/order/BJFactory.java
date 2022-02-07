@@ -1,17 +1,15 @@
 package com.xuewei.factory.absfactory.pizzastore.order;
 
-import com.xuewei.factory.factorymethod.pizzastore.pizza.LDCheesePizza;
-import com.xuewei.factory.factorymethod.pizzastore.pizza.LDPepperPizza;
-import com.xuewei.factory.factorymethod.pizzastore.pizza.Pizza;
+import com.xuewei.factory.absfactory.pizzastore.pizza.*;
 
 public class BJFactory implements AbsFactory{
     @Override
     public Pizza createPizza(String orderType) {
         Pizza pizza = null;
         if("cheese".equals(orderType)){
-            pizza = new LDCheesePizza();
+            pizza = new BJCheesePizza();
         } else if ("pepper".equals(orderType)){
-            pizza = new LDPepperPizza();
+            pizza = new BJPepperPizza();
         }
 
         return pizza;
