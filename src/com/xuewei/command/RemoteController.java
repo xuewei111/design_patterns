@@ -16,7 +16,7 @@ public class RemoteController {
     /**
      * 执行撤销的命令
      */
-    Command undoCommand;
+    private Command undoCommand;
 
     public RemoteController(){
         for (int i = 0; i < 5; i++) {
@@ -32,7 +32,7 @@ public class RemoteController {
      * @param onCommand
      * @param offCommand
      */
-    public void SetCommand(int no,Command onCommand,Command offCommand){
+    public void setCommand(int no,Command onCommand,Command offCommand){
         onCommands.set(no,onCommand);
 
         offCommands.set(no,offCommand);
@@ -49,8 +49,22 @@ public class RemoteController {
         undoCommand = onCommands.get(no);
     }
 
-    public void offButtonWasPushed(){
+    /**
+     * 按下关按钮
+     * @param no
+     */
+    public void offButtonWasPushed(int no){
+        // 找到你按下的关的按钮， 并调用对应方法
+        offCommands.get(no).execute();
+        // 记录这次的操作，用于撤销
+        undoCommand = offCommands.get(no);
+    }
 
+    /**
+     * 按下撤销按钮
+     */
+    public void undoButtonWasPushed() {
+        undoCommand.undo();
     }
 
 
